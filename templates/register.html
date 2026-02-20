@@ -1,0 +1,147 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="flex items-center justify-center min-h-[80vh] relative">
+
+
+    <!-- Background Glow -->
+
+    <div class="absolute w-96 h-96 bg-orange-600 rounded-full blur-[150px] opacity-20"></div>
+
+
+
+
+    <!-- Register Card -->
+
+    <div class="relative bg-black/60 backdrop-blur-lg border border-orange-500/20 shadow-2xl rounded-2xl p-10 w-full max-w-md">
+
+
+        <!-- Title -->
+
+        <h2 class="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+
+            Create Account
+
+        </h2>
+
+
+
+
+        <form method="post">
+
+            {% csrf_token %}
+
+
+            <!-- Username -->
+
+            <div class="mb-5">
+
+                <label class="block text-orange-400 mb-2 font-semibold">
+
+                    Username
+
+                </label>
+
+                <input name="username"
+
+                    required
+
+                    placeholder="Enter username"
+
+                    class="w-full bg-black border border-orange-500/30 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-white transition">
+
+            </div>
+
+
+
+            <!-- Email -->
+
+            <div class="mb-5">
+
+                <label class="block text-orange-400 mb-2 font-semibold">
+
+                    Email
+
+                </label>
+
+                <input name="email"
+
+                    required
+
+                    type="email"
+
+                    placeholder="Enter email"
+
+                    class="w-full bg-black border border-orange-500/30 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-white transition">
+
+            </div>
+
+
+
+            <!-- Password -->
+
+            <div class="mb-6">
+
+                <label class="block text-orange-400 mb-2 font-semibold">
+
+                    Password
+
+                </label>
+
+                <input name="password"
+
+                    required
+
+                    type="password"
+
+                    placeholder="Enter password"
+
+                    class="w-full bg-black border border-orange-500/30 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 text-white transition">
+
+            </div>
+
+
+
+            <!-- Button -->
+
+            <button
+
+                class="w-full bg-gradient-to-r from-orange-500 to-orange-600 py-3 rounded-xl font-bold hover:scale-105 hover:shadow-orange-500/40 hover:shadow-lg transition duration-300">
+
+                Send OTP
+
+            </button>
+
+
+
+        </form>
+
+
+
+
+        <!-- Login link -->
+
+        <p class="text-center mt-6 text-gray-400">
+
+            Already have an account?
+
+            <a href="/login/"
+
+                class="text-orange-400 font-bold hover:text-orange-300">
+
+                Login
+
+            </a>
+
+        </p>
+
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

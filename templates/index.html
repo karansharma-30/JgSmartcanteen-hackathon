@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>JGSmart Canteen</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-[#0a0a0a] text-white">
+
+
+
+<!-- NAVBAR -->
+
+<nav class="bg-black/70 backdrop-blur-lg border-b border-orange-500/20 shadow-xl sticky top-0 z-50">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="flex justify-between items-center py-4">
+
+
+
+<!-- LOGO -->
+
+<a href="/"
+class="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent hover:scale-110 transition duration-300">
+
+JGSmart Canteen
+
+</a>
+
+
+
+
+<!-- RIGHT SIDE -->
+
+<div class="flex items-center space-x-4 text-sm md:text-base">
+
+
+
+{% if user.is_authenticated %}
+
+
+<span class="hidden sm:block text-orange-400 font-semibold">
+
+Hi, {{user.username}}
+
+</span>
+
+
+
+
+<!-- CART -->
+
+<a href="/cart/"
+
+class="bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-orange-500/40 hover:shadow-lg transition duration-300">
+
+Cart
+
+</a>
+
+
+
+
+<!-- ORDERS -->
+
+<a href="/orders/"
+
+class="bg-gradient-to-r from-orange-700 to-orange-900 px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-orange-500/40 hover:shadow-lg transition duration-300">
+
+Orders
+
+</a>
+
+
+
+
+<!-- ADMIN -->
+
+{% if user.is_staff %}
+
+<a href="/admin/"
+
+class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-yellow-500/40 hover:shadow-lg transition duration-300 animate-pulse">
+
+Admin
+
+</a>
+
+{% endif %}
+
+
+
+
+<!-- LOGOUT -->
+
+<form action="/logout/" method="post" class="inline">
+
+{% csrf_token %}
+
+<button type="submit"
+
+class="bg-gradient-to-r from-red-500 to-red-700 px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-red-500/40 hover:shadow-lg transition duration-300">
+
+Logout
+
+</button>
+
+</form>
+
+
+
+
+{% else %}
+
+
+
+
+<a href="/login/"
+
+class="bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-orange-500/40 hover:shadow-lg transition duration-300">
+
+Login
+
+</a>
+
+
+
+<a href="/register/"
+
+class="bg-gradient-to-r from-orange-700 to-orange-900 px-5 py-2 rounded-xl font-bold hover:scale-110 hover:shadow-orange-500/40 hover:shadow-lg transition duration-300">
+
+Register
+
+</a>
+
+
+
+{% endif %}
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+
+
+<!-- MAIN -->
+
+<div class="max-w-7xl mx-auto p-6">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="text-center mt-16 mb-6 border-t border-orange-500/20 pt-6">
+
+<p class="text-gray-500 text-sm">
+
+© 2026 JGSmart Canteen • Hackathon Project
+
+</p>
+
+</footer>
+
+
+
+
+</body>
+
+</html>
